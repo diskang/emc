@@ -13,40 +13,40 @@ order by [timestamp]
 	return res
 
 
-# for acc in all_account:
-#  	with open("../../gen/trade_frequency_shop/%s.csv"%acc,"w") as f:
-#  		date=datetime.datetime(2014,9,1,0,0,0)
-#  		while (date!=datetime.datetime(2015,2,1,0,0,0)):
-#  			txt=list(get_from_db(acc,date))
-# 			f.write(((((str(txt)).replace('(u','')).replace(',)','')).replace('[','')).replace(']','')[23:]+'\n')
-# 			txt2=txt[:]
-# 			l=[]
-# 			for i in range (len(txt2)-1,0,-1):
-# 				txt2[i]=txt2[i-1]
-# 			for j in range (1,len(txt2)):
-# 				a=datetime.datetime.strptime(((((str(txt[j])).replace('(u','')).replace(',)','')).replace('[','')).replace(']','')[1:20], "%Y-%m-%d %H:%M:%S")
-# 				b=datetime.datetime.strptime(((((str(txt2[j])).replace('(u','')).replace(',)','')).replace('[','')).replace(']','')[1:20], "%Y-%m-%d %H:%M:%S")
-# 				print (a-b).seconds
-# 				f.write(','+'%s'%(a-b).seconds)
-# 			f.write('\n')
-# 			date=date + datetime.timedelta(days=1)
+for acc in all_account:
+ 	with open("../../gen/trade_frequency_shop/%s.csv"%acc,"w") as f:
+ 		date=datetime.datetime(2014,9,1,0,0,0)
+ 		while (date!=datetime.datetime(2015,2,1,0,0,0)):
+ 			txt=list(get_from_db(acc,date))
+			f.write(((((str(txt)).replace('(u','')).replace(',)','')).replace('[','')).replace(']','')[23:]+'\n')
+			txt2=txt[:]
+			l=[]
+			for i in range (len(txt2)-1,0,-1):
+				txt2[i]=txt2[i-1]
+			for j in range (1,len(txt2)):
+				a=datetime.datetime.strptime(((((str(txt[j])).replace('(u','')).replace(',)','')).replace('[','')).replace(']','')[1:20], "%Y-%m-%d %H:%M:%S")
+				b=datetime.datetime.strptime(((((str(txt2[j])).replace('(u','')).replace(',)','')).replace('[','')).replace(']','')[1:20], "%Y-%m-%d %H:%M:%S")
+				print (a-b).seconds
+				f.write(','+'%s'%(a-b).seconds)
+			f.write('\n')
+			date=date + datetime.timedelta(days=1)
 
-f=open("../../gen/trade_frequency_shop/%s.csv"%'1000001',"w+")
-date=datetime.datetime(2014,9,1,0,0,0)
-while (date!=datetime.datetime(2015,2,1,0,0,0)):
-	txt=list(get_from_db('1000001',date))
-	# print txt
-	f.write(((((str(txt)).replace('(u','')).replace(',)','')).replace('[','')).replace(']','')+'\n')
-	txt2=txt[:]
-	l=[]
-	for i in range (len(txt2)-1,0,-1):
-		txt2[i]=txt2[i-1]
-	for j in range (1,len(txt2)):
-		a=datetime.datetime.strptime(((((str(txt[j])).replace('(u','')).replace(',)','')).replace('[','')).replace(']','')[1:20], "%Y-%m-%d %H:%M:%S")
-		b=datetime.datetime.strptime(((((str(txt2[j])).replace('(u','')).replace(',)','')).replace('[','')).replace(']','')[1:20], "%Y-%m-%d %H:%M:%S")
-		print (a-b).seconds
-		f.write(','+'%s'%(a-b).seconds)
-	f.write('\n')
-	date=date + datetime.timedelta(days=1)
+# f=open("../../gen/trade_frequency_shop/%s.csv"%'1000001',"w+")
+# date=datetime.datetime(2014,9,1,0,0,0)
+# while (date!=datetime.datetime(2015,2,1,0,0,0)):
+# 	txt=list(get_from_db('1000001',date))
+# 	# print txt
+# 	f.write(((((str(txt)).replace('(u','')).replace(',)','')).replace('[','')).replace(']','')+'\n')
+# 	txt2=txt[:]
+# 	l=[]
+# 	for i in range (len(txt2)-1,0,-1):
+# 		txt2[i]=txt2[i-1]
+# 	for j in range (1,len(txt2)):
+# 		a=datetime.datetime.strptime(((((str(txt[j])).replace('(u','')).replace(',)','')).replace('[','')).replace(']','')[1:20], "%Y-%m-%d %H:%M:%S")
+# 		b=datetime.datetime.strptime(((((str(txt2[j])).replace('(u','')).replace(',)','')).replace('[','')).replace(']','')[1:20], "%Y-%m-%d %H:%M:%S")
+# 		print (a-b).seconds
+# 		f.write(','+'%s'%(a-b).seconds)
+# 	f.write('\n')
+# 	date=date + datetime.timedelta(days=1)
 
 cursor.close()
