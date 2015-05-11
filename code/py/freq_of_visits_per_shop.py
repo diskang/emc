@@ -36,7 +36,7 @@ with open("../../gen/visit_freq/visit_freq.csv","w") as f:
 		freqi_dict = list_to_dict(freqi_list)
 		freq_string=str(code)
 		for freq in range(1,151):
-			freq_string += ','+str(freqi_dict.get(freq,""))
+			freq_string += ','+str(freqi_dict.get(freq,0))
 		freq_string+='\n'
 		f.write(freq_string)	
 cursor.close()
