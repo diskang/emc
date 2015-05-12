@@ -20,11 +20,12 @@ group by toaccount
 	res=cursor.fetchall()
 	return list_to_dict(res)
 
-fw = open("../../gen/active_people_count/per_shop.csv","w")
+fw = open("../../gen/active_people_count/customer_per_shop.csv","w")
 shop_customers = get_from_db()
 for code in account_1 +account_2 +account_3 +account_4 +account_5 +account_6 +coffee  +market+bath:
 	customer_count = shop_customers.get(code,0)
-	fw.write("%s,%d\n"%(code,customer_count))
+	name = account_name.get(code)
+	fw.write("%s,%s,%d\n"%(code,name,customer_count))
 
 fw.close()
 
