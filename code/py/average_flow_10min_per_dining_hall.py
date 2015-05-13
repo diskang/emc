@@ -23,7 +23,7 @@ on a.toaccount = b.toaccount
 """
 START_POINT = datetime(100,1,1,5,30,0)
 FINISH_POINT = datetime(100,1,1,23,30,0)
-INTERVAL = [10,30]
+INTERVAL = [10]
 def list_to_dict(lst):#[(1,2),(a,b),...]=>{1:2,a:b}
 	d = dict()
 	for i in lst:
